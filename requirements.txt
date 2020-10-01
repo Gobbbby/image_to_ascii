@@ -1,0 +1,5 @@
+# for recieving and processing the image
+PIL
+
+# for storing the image and arrays
+numpy
