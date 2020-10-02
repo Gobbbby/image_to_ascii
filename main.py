@@ -7,7 +7,10 @@ from subprocess import check_output
 
 class png2ascii:
     def __init__(self, path):
-        self.img = np.asarray(Image.open(path).convert('L'), dtype='int32')
+        pilImg = Image.open(path).convert('L')
+        winWidth = int(check_output(['stty', 'size']).split()[1])//2
+        
+        self.img = np.asarray(pilImg.resize((winWidth, winWidth*(pilImg.size[0]//pilImg.size[1]))), dtype='int32')
         
         self.increments = ['  ', '..', '::', '!!', '//', 'xx', 'XX', '@@']
         self.incrNum = len(self.increments)
