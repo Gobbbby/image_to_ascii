@@ -1,5 +1,5 @@
 # for recieving and processing the image
-PIL
+Pillow==7.2.0
 
 # for storing the image and arrays
-numpy
+numpy==1.19.0
